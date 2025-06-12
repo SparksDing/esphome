@@ -4,6 +4,7 @@ esphome:
 esp8266:
   board: nodemcuv2
 
+api:
 
 wifi:
   ssid: "CMCC-bGUr"

@@ -1,3 +1,5 @@
+import traceback
+
 from esphome import automation
 from esphome.automation import maybe_simple_id
 import esphome.codegen as cg
@@ -64,6 +66,9 @@ async def to_code(config):
     ),
 )
 async def servo_write_to_code(config, action_id, template_arg, args):
+    for item in traceback.format_stack():
+        print(item)
+    assert False
     paren = await cg.get_variable(config[CONF_ID])
     var = cg.new_Pvariable(action_id, template_arg, paren)
     template_ = await cg.templatable(config[CONF_LEVEL], args, float)

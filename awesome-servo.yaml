@@ -1,0 +1,55 @@
+esphome:
+  name: awesomeservo
+
+esp8266:
+  board: nodemcuv2
+
+wifi:
+  ssid: "CMCC-bGUr"
+  password: "nubh3577"
+
+# Enable logging
+logger:
+
+captive_portal:
+
+number:
+  - platform: template
+    id: servoSlider1
+    name: Stunt Servo 1
+    icon: mdi:sync
+    optimistic: true
+    min_value: -100
+    max_value: 100
+    initial_value: 0
+    step: 5
+    on_value:
+      then:
+        - awesome_servo.write:
+            id: awesome_servo_1
+            level: !lambda |-
+              return x/100;
+
+i2c:
+  - id: bus_a
+    sda: 4
+    scl: 5
+    scan: true
+
+sensor:
+#Helligkeit
+  - platform: awesome_servo
+    id: awesome_servo_1
+    i2c_id: bus_a
+    name: "Awesome Servo"
+    address: 0x23
+    # restore: true
+    update_interval: 1ms
+    filters:
+      - sliding_window_moving_average:
+          window_size: 10
+          send_every: 10
+          send_first_at: 1
+      - or:
+          - throttle: 60s
+          - delta: 10
