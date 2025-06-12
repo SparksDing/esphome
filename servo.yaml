@@ -1,0 +1,48 @@
+esphome:
+  name: servo
+
+esp8266:
+  board: nodemcuv2
+
+
+
+
+wifi:
+  ssid: "CMCC-bGUr"
+  password: "nubh3577"
+
+
+api:
+
+# ota:
+
+logger:
+
+
+number:
+  - platform: template
+    id: servoSlider1
+    name: Stunt Servo 1
+    icon: mdi:sync
+    optimistic: true
+    min_value: -100
+    max_value: 100
+    initial_value: 0
+    step: 5
+    on_value:
+      then:
+        - servo.write:
+            id: servo1
+            level: !lambda |-
+              return x/100;
+
+servo:
+  - id: servo1
+    output: output1
+
+  
+output:
+  - platform: esp8266_pwm
+    id: output1
+    pin: D4
+    frequency: 50 Hz

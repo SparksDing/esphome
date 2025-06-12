@@ -1,0 +1,28 @@
+esphome:
+  name: switch
+
+esp8266:
+  board: nodemcuv2
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+# api:
+#   password: ""
+
+# ota:
+#   - platform: esphome
+#     password: ""
+
+# wifi:
+#   ssid: "CMCC-bGUr"
+#   password: "nubh3577"
+
+#   # Enable fallback hotspot (captive portal) in case wifi connection fails
+#   ap:
+#     ssid: "Switch Fallback Hotspot"
+#     password: "4kqPPxMHCpf8"
+
+# captive_portal:
+    
