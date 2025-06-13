@@ -1,0 +1,362 @@
+INFO ESPHome 2025.6.0-dev
+INFO Reading configuration servo.yaml...
+{'core': {'target_platform': 'esp8266', 'target_framework': 'arduino', 'framework_version': Version(major=3, minor=1, patch=2)}, 'esp8266': {'board': 'nodemcuv2', 'pin_initial_states': [PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255)]}}
+{'core': {'target_platform': 'esp8266', 'target_framework': 'arduino', 'framework_version': Version(major=3, minor=1, patch=2)}, 'esp8266': {'board': 'nodemcuv2', 'pin_initial_states': [PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255)]}}
+INFO Generating C++ source...
+INFO Compiling app...
+Processing servo (board: nodemcuv2; framework: arduino; platform: platformio/espressif8266@4.2.1)
+-------------------------------------------------------------------------------------------------------------------------------------
+HARDWARE: ESP8266 80MHz, 80KB RAM, 4MB Flash
+Dependency Graph
+|-- ESP8266WiFi @ 1.0
+|-- ESP8266mDNS @ 1.2
+Compiling .pioenvs/servo/src/main.cpp.o
+Compiling .pioenvs/servo/lib385/ESP8266WiFi/WiFiClientSecureBearSSL.cpp.o
+Compiling .pioenvs/servo/lib385/ESP8266WiFi/WiFiServer.cpp.o
+Compiling .pioenvs/servo/lib385/ESP8266WiFi/WiFiServerSecureBearSSL.cpp.o
+Compiling .pioenvs/servo/lib385/ESP8266WiFi/WiFiUdp.cpp.o
+Compiling .pioenvs/servo/lib385/ESP8266WiFi/enable_wifi_at_boot_time.cpp.o
+Compiling .pioenvs/servo/libe5c/ESP8266mDNS/ESP8266mDNS.cpp.o
+Compiling .pioenvs/servo/libe5c/ESP8266mDNS/LEAmDNS.cpp.o
+Compiling .pioenvs/servo/libe5c/ESP8266mDNS/LEAmDNS_Control.cpp.o
+Compiling .pioenvs/servo/libe5c/ESP8266mDNS/LEAmDNS_Helpers.cpp.o
+Compiling .pioenvs/servo/libe5c/ESP8266mDNS/LEAmDNS_Structs.cpp.o
+Compiling .pioenvs/servo/libe5c/ESP8266mDNS/LEAmDNS_Transfer.cpp.o
+Archiving .pioenvs/servo/libFrameworkArduinoVariant.a
+Compiling .pioenvs/servo/FrameworkArduino/Crypto.cpp.o
+Indexing .pioenvs/servo/libFrameworkArduinoVariant.a
+Compiling .pioenvs/servo/FrameworkArduino/Esp-frag.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/Esp-version.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/Esp.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/FS.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/FSnoop.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/FunctionalInterrupt.cpp.o
+Archiving .pioenvs/servo/lib385/libESP8266WiFi.a
+Indexing .pioenvs/servo/lib385/libESP8266WiFi.a
+Compiling .pioenvs/servo/FrameworkArduino/HardwareSerial.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/IPAddress.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/LwipDhcpServer-NonOS.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/LwipDhcpServer.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/LwipIntf.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/LwipIntfCB.cpp.o
+Archiving .pioenvs/servo/libe5c/libESP8266mDNS.a
+Indexing .pioenvs/servo/libe5c/libESP8266mDNS.a
+Compiling .pioenvs/servo/FrameworkArduino/MD5Builder.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/Print.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/Schedule.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/StackThunk.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/Stream.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/StreamSend.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/Tone.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/TypeConversion.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/Updater.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/WMath.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/WString.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/abi.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/aes_unwrap.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/base64.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/cbuf.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/cont.S.o
+Compiling .pioenvs/servo/FrameworkArduino/cont_util.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_app_entry_noextra4k.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_eboot_command.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_features.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_flash_quirks.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_flash_utils.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_i2s.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_main.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_non32xfer.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_noniso.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_phy.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_postmortem.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_si2c.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_sigma_delta.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_spi_utils.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_timer.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_vm.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_waveform_phase.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_waveform_pwm.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_wiring.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_wiring_analog.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_wiring_digital.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_wiring_pulse.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_wiring_pwm.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/core_esp8266_wiring_shift.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/crc32.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/debug.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/exc-c-wrapper-handler.S.o
+Compiling .pioenvs/servo/FrameworkArduino/exc-sethandler.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/flash_hal.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/gdb_hooks.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/heap.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/hwdt_app_entry.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/libb64/cdecode.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/libb64/cencode.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/libc_replacements.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/mmu_iram.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/reboot_uart_dwnld.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/spiffs/spiffs_cache.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/spiffs/spiffs_check.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/spiffs/spiffs_gc.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/spiffs/spiffs_hydrogen.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/spiffs/spiffs_nucleus.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/spiffs_api.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/sqrt32.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/stdlib_noniso.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/time.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/uart.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/umm_malloc/umm_info.c.o
+Compiling .pioenvs/servo/FrameworkArduino/umm_malloc/umm_integrity.c.o
+Compiling .pioenvs/servo/FrameworkArduino/umm_malloc/umm_local.c.o
+Compiling .pioenvs/servo/FrameworkArduino/umm_malloc/umm_malloc.cpp.o
+Compiling .pioenvs/servo/FrameworkArduino/umm_malloc/umm_poison.c.o
+Compiling .pioenvs/servo/FrameworkArduino/wpa2_eap_patch.cpp.o
+Archiving .pioenvs/servo/libFrameworkArduino.a
+Indexing .pioenvs/servo/libFrameworkArduino.a
+Linking .pioenvs/servo/firmware.elf
+RAM:   [====      ]  37.7% (used 30904 bytes from 81920 bytes)
+Flash: [===       ]  34.9% (used 364075 bytes from 1044464 bytes)
+Building .pioenvs/servo/firmware.bin
+/Users/admin/.platformio/packages/framework-arduinoespressif8266/tools/elf2bin.py:54: SyntaxWarning: invalid escape sequence '\s'
+  words = re.split('\s+', line)
+/Users/admin/.platformio/packages/framework-arduinoespressif8266/tools/elf2bin.py:73: SyntaxWarning: invalid escape sequence '\s'
+  words = re.split('\s+', line)
+esp8266_copy_factory_bin([".pioenvs/servo/firmware.bin"], [".pioenvs/servo/firmware.elf"])
+esp8266_copy_ota_bin([".pioenvs/servo/firmware.bin"], [".pioenvs/servo/firmware.elf"])
+==================================================== [SUCCESS] Took 9.29 seconds ====================================================
+INFO Successfully compiled program.
+{'core': {'target_platform': 'esp8266', 'target_framework': 'arduino', 'framework_version': Version(major=3, minor=1, patch=2), 'idedata': <esphome.platformio_api.IDEData object at 0x1059f91c0>}, 'esp8266': {'board': 'nodemcuv2', 'pin_initial_states': [PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=0), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255)]}, 'logger': {'level': 'DEBUG'}}
+ERROR Cannot upload Over the Air as the ota configuration is not present or does not include platform: esphome
+(venv) (base) ➜  esphome git:(dev) ✗ esphome run servo.yaml
+INFO ESPHome 2025.6.0-dev
+INFO Reading configuration servo.yaml...
+{'core': {'target_platform': 'esp8266', 'target_framework': 'arduino', 'framework_version': Version(major=3, minor=1, patch=2)}, 'esp8266': {'board': 'nodemcuv2', 'pin_initial_states': [PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255)]}}
+{'core': {'target_platform': 'esp8266', 'target_framework': 'arduino', 'framework_version': Version(major=3, minor=1, patch=2)}, 'esp8266': {'board': 'nodemcuv2', 'pin_initial_states': [PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255)]}}
+INFO Generating C++ source...
+INFO Compiling app...
+Processing servo (board: nodemcuv2; framework: arduino; platform: platformio/espressif8266@4.2.1)
+-------------------------------------------------------------------------------------------------------------------------------------
+HARDWARE: ESP8266 80MHz, 80KB RAM, 4MB Flash
+Dependency Graph
+|-- ESP8266WiFi @ 1.0
+|-- ESP8266mDNS @ 1.2
+RAM:   [====      ]  37.7% (used 30904 bytes from 81920 bytes)
+Flash: [===       ]  34.9% (used 364075 bytes from 1044464 bytes)
+==================================================== [SUCCESS] Took 0.89 seconds ====================================================
+INFO Successfully compiled program.
+{'core': {'target_platform': 'esp8266', 'target_framework': 'arduino', 'framework_version': Version(major=3, minor=1, patch=2), 'idedata': <esphome.platformio_api.IDEData object at 0x102b7f500>}, 'esp8266': {'board': 'nodemcuv2', 'pin_initial_states': [PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=0), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255), PinInitialState(level=255)]}, 'logger': {'level': 'DEBUG'}}
+Found multiple options for uploading, please choose one:
+  [1] /dev/cu.wchusbserial10 (USB Serial)
+  [2] Over The Air (servo.local)
+(number): 1
+esptool.py v4.8.1
+Serial port /dev/cu.wchusbserial10
+Connecting....
+Chip is ESP8266EX
+Features: WiFi
+Crystal is 26MHz
+MAC: e8:68:e7:c8:4b:3e
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Auto-detected Flash size: 4MB
+Flash will be erased from 0x00000000 to 0x00059fff...
+Compressed 368224 bytes to 260795...
+Wrote 368224 bytes (260795 compressed) at 0x00000000 in 6.2 seconds (effective 473.0 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
+INFO Successfully uploaded program.
+INFO Starting log output from /dev/cu.wchusbserial10 with baud rate 115200
+[23:18:12]2l\xe0|
+                 \x8cl\xe4c|\x8f\x82\xec\x9br\x9b#\x84c\x84\xfb'o\xdf$g'\x9c\xe3\xeccp\x8c\x8ed{$sdx\xf3o\xe0
+                                                                                                             \xc3$
+                                                                                                                  Ĝ
+                                                                                                                   c
+                                                                                                                    o\xe2<\xec\x8f\xd8c\x84\xfbgo\xeed\x8c\x8el \x98n
+                                d`gs\x8eۓo
+                                          #d\x9c$p\xf2'\xe0
+                                                           {\x8cܜ\x9c\x80\x8cco\xe3<
+                                                                                    \x8e
+                                                                                        c\xc4\xf2no\xef
+                                                                                                       d`\x90gl`'{\x87\x93\x9bg
+                                                                                                                               cĒ s\x9b\x92'
+
+       c\x8c\x9b`\xdc
+                     l\xc7|\xe2l`\xfc\x82'\x9cl\x84\xe3\xec\x83g\xe4\x9bs\x83\xfbg|\xec
+                                                                                       l\xc4
+                                                                                            d`c\x9b\x9f|{\x92$\x9c'\xe0
+                                                                                                                       \x82'\xe3
+                                                                                                                                d`\x84\xe3{\x93d\xc4lxc4
+                   \xfe[I][logger:034]: Log initialized
+[23:18:12][I][app:029]: Running through setup()...
+[23:18:12][D][number:012]: 'Stunt Servo 1': Sending state 0.000000
+[23:18:12][D][servo:081]: Servo new target: 0.000000
+[23:18:12][C][esp8266_pwm:017]: Setting up ESP8266 PWM Output...
+[23:18:12][C][wifi:048]: Setting up WiFi...
+[23:18:12][C][wifi:061]: Starting WiFi...
+[23:18:12][C][wifi:062]:   Local MAC: E8:68:E7:C8:4B:3E
+[23:18:12][D][wifi:482]: Starting scan...
+[23:18:12][W][component:167]: Component wifi set Warning flag: scanning for networks
+[23:18:18][D][wifi:497]: Found networks:
+[23:18:18][I][wifi:540]: - 'CMCC-bGUr' (D4:31:27:1A:04:50) ▂▄▆█
+[23:18:18][D][wifi:542]:     Channel: 6
+[23:18:18][D][wifi:543]:     RSSI: -44 dB
+[23:18:18][D][wifi:545]: - 'CMCC-3dFx' (E8:F6:54:52:04:30) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'TP-LINK_7582' (80:AE:54:42:75:83) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-UtbR' (30:40:74:66:21:75) ▂▄▆█
+[23:18:18][D][wifi:545]: - '506' (B8:A1:4A:2F:14:B1) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'Saber' (BC:5F:F6:FA:31:94) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CU_PQdx' (50:42:89:DD:CB:20) ▂▄▆█
+[23:18:18][D][wifi:545]: - '301' (E8:A6:60:10:F1:30) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'ChinaNet-CXw6' (2C:55:7C:CC:D1:F2) ▂▄▆█
+[23:18:18][D][wifi:545]: - '301' (08:2F:E9:CC:E6:C2) ▂▄▆█
+[23:18:18][D][wifi:545]: - '301' (08:2F:E9:CC:47:58) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-505' (28:D0:F5:F5:4F:E2) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-504' (28:D0:F5:F5:51:26) ▂▄▆█
+[23:18:18][D][wifi:545]: - '' (7A:D0:F5:F5:51:23) ▂▄▆█
+[23:18:18][D][wifi:545]: - '' (72:D0:F5:F5:4F:E7) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-hY4S' (98:17:F1:99:AF:C8) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'MX2' (14:E9:B2:4B:00:1D) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'ChinaNet-LPL' (88:5D:FB:6D:25:30) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'Xiaomi_207' (F0:B4:29:8F:DF:6F) ▂▄▆█
+[23:18:18][D][wifi:545]: - '' (8A:D0:F5:47:E1:09) ▂▄▆█
+[23:18:18][D][wifi:545]: - '203' (64:BF:6B:EB:37:5C) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CU_7yYy' (A0:44:5C:4E:50:7C) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CU_FS2H' (A0:09:2E:A2:6B:BB) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'F0401' (CC:81:DA:56:F6:F8) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'ChinaNGB-CWVAMT' (C0:8F:20:4F:67:D5) ▂▄▆█
+[23:18:18][D][wifi:545]: - '104_plus' (34:CE:00:79:59:A2) ▂▄▆█
+[23:18:18][D][wifi:545]: - '' (54:0D:F9:5C:7C:15) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-304' (E8:EA:4D:10:BA:D4) ▂▄▆█
+[23:18:18][D][wifi:545]: - '502' (F8:F7:B9:88:38:D0) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-GUIDE-LINK' (36:D8:56:12:C5:6D) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'ChinaNet-sxzmensuo' (4C:06:17:DC:4C:B7) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-QQNP' (78:91:E9:B4:F7:9D) ▂▄▆█
+[23:18:18][D][wifi:545]: - '304' (94:BE:09:85:D2:29) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-Nemv' (BC:1E:85:57:56:F9) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-301' (E8:43:68:BD:EB:9F) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-201' (34:D8:56:32:C5:6D) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-302' (F4:FB:B8:1C:9C:06) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-Nemv' (E4:82:10:9F:C2:49) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'ChinaNet-QzJs' (B0:E2:E5:CA:87:28) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-hZ99' (E8:43:68:BD:3D:BF) ▂▄▆█
+[23:18:18][D][wifi:545]: - '1801' (54:0D:F9:5C:7C:10) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-pXAv' (70:8C:B6:8F:0D:14) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'ChinaNet-SuM5' (E8:B4:EF:17:26:50) ▂▄▆█
+[23:18:18][D][wifi:545]: - '@PHICOMM_A0' (D8:C8:E9:62:A9:A8) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'ChinaNet-EWfe' (0C:36:FE:9D:A3:78) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'ChinaNet-qutf' (D8:8C:73:2C:87:9F) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-201' (EC:E7:C2:DF:0C:09) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'midea_ca_0224' (84:7C:9B:83:33:51) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-401' (B8:A1:4A:77:D6:41) ▂▄▆█
+[23:18:18][D][wifi:545]: - '1805' (20:3A:EB:A5:50:B0) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-9JAS' (24:12:81:63:5C:57) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-t9Gt' (D8:A0:E8:75:09:A2) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CU_8Yh4' (DC:A7:82:7F:E2:74) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-hYy9' (E8:43:68:82:9E:C0) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-9GTs' (D8:A0:E8:74:D4:CA) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-hZ99' (E8:43:68:BE:A6:37) ▂▄▆█
+[23:18:18][D][wifi:545]: - '' (2E:3A:EB:A5:50:B0) ▂▄▆█
+[23:18:18][D][wifi:545]: - '203' (60:3D:29:A5:A7:F1) ▂▄▆█
+[23:18:18][D][wifi:545]: - 'CMCC-401' (38:F6:CF:F2:B3:69) ▂▄▆█
+[23:18:18][D][wifi:545]: - '306' (10:32:7E:F1:3D:B0) ▂▄▆█
+[23:18:18][I][wifi:313]: WiFi Connecting to 'CMCC-bGUr'...
+[23:18:22][I][wifi:617]: WiFi Connected!
+[23:18:22][C][wifi:428]:   Local MAC: E8:68:E7:C8:4B:3E
+[23:18:22][C][wifi:433]:   SSID: 'CMCC-bGUr'
+[23:18:22][C][wifi:436]:   IP Address: 192.168.1.42
+[23:18:22][C][wifi:439]:   BSSID: D4:31:27:1A:04:50
+[23:18:22][C][wifi:441]:   Hostname: 'servo'
+[23:18:22][C][wifi:443]:   Signal strength: -51 dB ▂▄▆█
+[23:18:22][C][wifi:447]:   Channel: 6
+[23:18:22][C][wifi:448]:   Subnet: 255.255.255.0
+[23:18:22][C][wifi:449]:   Gateway: 192.168.1.1
+[23:18:22][C][wifi:450]:   DNS1: 192.168.1.1
+[23:18:22][C][wifi:451]:   DNS2: 0.0.0.0
+[23:18:22][C][api:030]: Setting up Home Assistant API server...
+[23:18:22][I][app:066]: setup() finished successfully!
+[23:18:22][W][component:182]: Component wifi cleared Warning flag
+[23:18:22][W][component:167]: Component api set Warning flag: unspecified
+[23:18:22][I][app:115]: ESPHome version 2025.6.0-dev compiled on Jun  8 2025, 23:17:42
+[23:18:22][C][wifi:600]: WiFi:
+[23:18:22][C][wifi:428]:   Local MAC: E8:68:E7:C8:4B:3E
+[23:18:22][C][wifi:433]:   SSID: 'CMCC-bGUr'
+[23:18:22][C][wifi:436]:   IP Address: 192.168.1.42
+[23:18:22][C][wifi:439]:   BSSID: D4:31:27:1A:04:50
+[23:18:22][C][wifi:441]:   Hostname: 'servo'
+[23:18:22][C][wifi:443]:   Signal strength: -51 dB ▂▄▆█
+[23:18:22][C][wifi:447]:   Channel: 6
+[23:18:22][C][wifi:448]:   Subnet: 255.255.255.0
+[23:18:22][C][wifi:449]:   Gateway: 192.168.1.1
+[23:18:22][C][wifi:450]:   DNS1: 192.168.1.1
+[23:18:22][C][wifi:451]:   DNS2: 0.0.0.0
+[23:18:22][C][logger:224]: Logger:
+[23:18:22][C][logger:225]:   Max Level: DEBUG
+[23:18:22][C][logger:226]:   Initial Level: DEBUG
+[23:18:22][C][logger:228]:   Log Baud Rate: 115200
+[23:18:22][C][logger:229]:   Hardware UART: UART0
+[23:18:22][C][template.number:050]: Template Number 'Stunt Servo 1'
+[23:18:22][C][template.number:050]:   Icon: 'mdi:sync'
+[23:18:22][C][template.number:051]:   Optimistic: YES
+[23:18:22][C][template.number:052]:   Update Interval: 60.0s
+[23:18:22][C][esp8266_pwm:022]: ESP8266 PWM:
+[23:18:22][C][esp8266_pwm:023]:   Pin: GPIO2
+[23:18:22][C][esp8266_pwm:024]:   Frequency: 50.0 Hz
+[23:18:22][C][servo:014]: Servo:
+[23:18:22][C][servo:015]:   Idle Level: 7.5%
+[23:18:22][C][servo:016]:   Min Level: 3.0%
+[23:18:22][C][servo:017]:   Max Level: 12.0%
+[23:18:22][C][servo:018]:   auto detach time: 0 ms
+[23:18:22][C][servo:019]:   run duration: 0 ms
+[23:18:22][C][mdns:120]: mDNS:
+[23:18:22][C][mdns:121]:   Hostname: servo
+[23:18:22][C][api:170]: API Server:
+[23:18:22][C][api:171]:   Address: servo.local:6053
+[23:18:22][C][api:178]:   Using noise encryption: NO
+[23:19:17][D][api:122]: Accepted 192.168.1.14
+[23:19:17][W][component:182]: Component api cleared Warning flag
+[23:19:17][D][api.connection:269]: aioesphomeapi (192.168.1.14) requested disconnected
+[23:19:17][W][component:167]: Component api set Warning flag: unspecified
+[23:19:17][D][api:122]: Accepted 192.168.1.14
+[23:19:17][W][component:182]: Component api cleared Warning flag
+[23:19:17][D][api.connection:1533]: Home Assistant 2025.6.0.dev0 (192.168.1.14): Connected successfully
+[23:19:34][D][number:054]: 'Stunt Servo 1' - Setting number value
+[23:19:34][D][number:113]:   New number value: -30.000000
+[23:19:34][D][number:012]: 'Stunt Servo 1': Sending state -30.000000
+[23:19:34][D][servo:081]: Servo new target: -0.300000
+[23:19:34][D][servo:066]: Servo reached target
+[23:20:41][D][number:054]: 'Stunt Servo 1' - Setting number value
+[23:20:41][D][number:113]:   New number value: 0.000000
+[23:20:41][D][number:012]: 'Stunt Servo 1': Sending state 0.000000
+[23:20:41][D][servo:081]: Servo new target: 0.000000
+[23:20:41][D][servo:066]: Servo reached target
+[23:20:45][D][number:054]: 'Stunt Servo 1' - Setting number value
+[23:20:45][D][number:113]:   New number value: -50.000000
+[23:20:45][D][number:012]: 'Stunt Servo 1': Sending state -50.000000
+[23:20:45][D][servo:081]: Servo new target: -0.500000
+[23:20:45][D][servo:066]: Servo reached target
+[23:21:53][D][number:054]: 'Stunt Servo 1' - Setting number value
+[23:21:53][D][number:113]:   New number value: -40.000000
+[23:21:53][D][number:012]: 'Stunt Servo 1': Sending state -40.000000
+[23:21:53][D][servo:081]: Servo new target: -0.400000
+[23:21:53][D][servo:066]: Servo reached target
+[23:21:56][D][number:054]: 'Stunt Servo 1' - Setting number value
+[23:21:56][D][number:113]:   New number value: -15.000000
+[23:21:56][D][number:012]: 'Stunt Servo 1': Sending state -15.000000
+[23:21:56][D][servo:081]: Servo new target: -0.150000
+[23:21:56][D][servo:066]: Servo reached target
+[23:21:59][D][number:054]: 'Stunt Servo 1' - Setting number value
+[23:21:59][D][number:113]:   New number value: 25.000000
+[23:21:59][D][number:012]: 'Stunt Servo 1': Sending state 25.000000
+[23:21:59][D][servo:081]: Servo new target: 0.250000
+[23:21:59][D][servo:066]: Servo reached target
+[23:22:02][D][number:054]: 'Stunt Servo 1' - Setting number value
+[23:22:02][D][number:113]:   New number value: 95.000000
+[23:22:02][D][number:012]: 'Stunt Servo 1': Sending state 95.000000
+[23:22:02][D][servo:081]: Servo new target: 0.950000
+[23:22:02][D][servo:066]: Servo reached target
