@@ -1,23 +1,29 @@
 esphome:
   name: servo
 
+# esp32:
+#   board: esp32dev
+
 esp8266:
   board: nodemcuv2
-
-
-
 
 wifi:
   ssid: "CMCC-bGUr"
   password: "nubh3577"
 
+globals:
+  - id: glbl_timeout_length_ticks
+    type: int
+    restore_value: yes
+    # 5 min * 60 seconds = 300
+    initial_value: "300"
 
 api:
 
 # ota:
 
 logger:
-
+  baud_rate: 9600
 
 number:
   - platform: template
@@ -31,6 +37,11 @@ number:
     step: 5
     on_value:
       then:
+        - globals.set:
+            id: glbl_timeout_length_ticks
+            value: !lambda |-
+              return (int) x;
+        - delay: !lambda 'return id(glbl_timeout_length_ticks);'
         - servo.write:
             id: servo1
             level: !lambda |-
@@ -38,11 +49,16 @@ number:
 
 servo:
   - id: servo1
-    output: output1
+    output: pwm_output
 
-  
+# output:
+#   - platform: ledc
+#     id: output1
+#     pin: 13
+#     frequency: 50 Hz
+
 output:
   - platform: esp8266_pwm
-    id: output1
-    pin: D4
+    id: pwm_output
+    pin: 13
     frequency: 50 Hz
