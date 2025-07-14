@@ -1,0 +1,256 @@
+esphome:
+  name: sensor-display-receiver
+  on_boot:
+    then:
+      - logger.log: "ESPHome boot complete. Enabling display power and triggering refresh."
+      - switch.turn_on: epd_power
+      - delay: 1s
+      - lambda: id(epaper_display).update();
+
+# external_components:
+#   - source: components
+#     components: [ crowpanel_epaper, espnow_receiver ]
+
+esp32:
+  board: esp32-s3-devkitc-1
+
+logger:
+  level: DEBUG
+  baud_rate: 9600
+  hardware_uart: UART0
+
+api:
+
+ota:
+  platform: esphome
+
+wifi:
+  ssid: "Wokwi-GUEST"
+  password: ""
+  # ap:
+  #   ssid: "Sensor Display Fallback"
+  #   password: "CHANGEME123"
+
+font:
+  - file: "/Users/gym/Downloads/Roboto-Regular.ttf"
+    id: roboto_regular
+    size: 20
+  
+  - file: "/Users/gym/Downloads/Roboto-Regular.ttf"
+    id: large_font
+    size: 36
+    
+  - file: "/Users/gym/Downloads/Roboto-Regular.ttf"
+    id: small_font
+    size: 16
+    
+  - file: "/Users/gym/Downloads/materialdesignicons-webfont.ttf"
+    id: icon_font
+    size: 24
+    glyphs:
+      - "\U000F0D43"
+      - "\U000F07E4"
+      - "\U000F0BAC"
+      - "\U000F050F"
+      - "\U000F058E"
+      - "\U000F0093"
+      - "\U000F0647"
+      - "\U000F05E0"
+      - "\U000F0028"
+      - "\U000F0159"
+      - "\U000F0450"
+      - "\U000F05A9"
+      - "\U000F0150"
+
+
+display:
+  - platform: crowpanel_epaper
+    clk_pin: 12
+    mosi_pin: 11
+    id: epaper_display
+    model: 4.20in 
+    cs_pin: 45
+    dc_pin: 46
+    reset_pin: 47
+    busy_pin: 48
+    update_interval: 10s
+    full_update_every: 10
+    rotation: 180
+    lambda: |-
+      if (!id(g_data_valid)) {
+        it.printf(it.get_width()/2, it.get_height()/2, id(large_font), COLOR_ON, TextAlign::CENTER, "Waiting for data...");
+        return; 
+      }
+      it.rectangle(0, 0, it.get_width(), it.get_height());
+      it.printf(it.get_width()/2 - 100, 25, id(icon_font), COLOR_ON, TextAlign::CENTER, "\U000F0D43"); 
+      it.printf(it.get_width()/2, 25, id(large_font), COLOR_ON, TextAlign::CENTER, "Air Quality");
+      int col1_icon_x = 27; 
+      int col1_text_x = col1_icon_x + 22; 
+      
+      int col2_icon_x = it.get_width()/2 + 27; 
+      int col2_text_x = col2_icon_x + 22; 
+      
+      int start_y = 75;           
+      int row_spacing = 35;       
+      
+      int overall_status = 0; 
+      auto check_metric = [&](float value, float good_threshold, float moderate_threshold) {
+        int current_status = 0;
+        if (value > moderate_threshold) {
+          current_status = 2; 
+        } else if (value > good_threshold) {
+          current_status = 1; 
+        }
+        if (current_status > overall_status) {
+          overall_status = current_status;
+        }
+      };
+      check_metric(id(g_pm2_5), 12, 35.4);
+      check_metric(id(g_pm10), 54, 154);
+      check_metric(id(g_co2), 800, 1200);
+      check_metric(id(g_voc), 2, 3); 
+      check_metric(id(g_ch2o), 0.08, 0.1);
+      check_metric(id(g_co), 4.4, 9.4);
+      check_metric(id(g_o3), 54, 70);
+      check_metric(id(g_no2), 0.04, 0.1);
+      
+
+      
+      int status_icon_x = it.get_width()/2 + 100; 
+      if (overall_status == 0) {
+        it.printf(status_icon_x, 25, id(icon_font), Color::BLACK, TextAlign::CENTER, "\U000F05E0"); 
+      } else if (overall_status == 1) {
+        it.printf(status_icon_x, 25, id(icon_font), Color::BLACK, TextAlign::CENTER, "\U000F0028"); 
+      } else {
+        it.printf(status_icon_x, 25, id(icon_font), Color::BLACK, TextAlign::CENTER, "\U000F0159"); 
+      }
+
+      
+      it.printf(col1_icon_x, start_y, id(icon_font), Color::BLACK, TextAlign::CENTER, "\U000F0D43"); 
+      it.printf(col1_text_x, start_y - 13, id(roboto_regular), Color::BLACK, TextAlign::LEFT, "PM1.0: %d ug/m3", id(g_pm1_0)); 
+      
+      it.printf(col1_icon_x, start_y + row_spacing, id(icon_font), Color::BLACK, TextAlign::CENTER, "\U000F0D43"); 
+      it.printf(col1_text_x, start_y + row_spacing - 13, id(roboto_regular), Color::BLACK, TextAlign::LEFT, "PM2.5: %d ug/m3", id(g_pm2_5)); 
+      
+      it.printf(col1_icon_x, start_y + row_spacing*2, id(icon_font), Color::BLACK, TextAlign::CENTER, "\U000F0D43"); 
+      it.printf(col1_text_x, start_y + row_spacing*2 - 13, id(roboto_regular), Color::BLACK, TextAlign::LEFT, "PM10: %d ug/m3", id(g_pm10)); 
+      it.printf(col1_icon_x, start_y + row_spacing*3, id(icon_font), Color::BLACK, TextAlign::CENTER, "\U000F07E4"); 
+      it.printf(col1_text_x, start_y + row_spacing*3 - 13, id(roboto_regular), Color::BLACK, TextAlign::LEFT, "CO2: %d ppm", id(g_co2)); 
+      
+      it.printf(col1_icon_x, start_y + row_spacing*4, id(icon_font), Color::BLACK, TextAlign::CENTER, "\U000F0BAC"); 
+      it.printf(col1_text_x, start_y + row_spacing*4 - 13, id(roboto_regular), Color::BLACK, TextAlign::LEFT, "VOC: %d", id(g_voc));
+
+      it.printf(col1_icon_x, start_y + row_spacing*5, id(icon_font), Color::BLACK, TextAlign::CENTER, "\U000F0093"); 
+      it.printf(col1_text_x, start_y + row_spacing*5 - 13, id(roboto_regular), Color::BLACK, TextAlign::LEFT, "CH2O: %.3f mg/m3", id(g_ch2o)); 
+
+      it.printf(col2_icon_x, start_y, id(icon_font), Color::BLACK, TextAlign::CENTER, "\U000F050F"); 
+      it.printf(col2_text_x, start_y - 13, id(roboto_regular), Color::BLACK, TextAlign::LEFT, "Temp: %.1f °C", id(g_temperature)); 
+      
+      it.printf(col2_icon_x, start_y + row_spacing, id(icon_font), Color::BLACK, TextAlign::CENTER, "\U000F058E"); 
+      it.printf(col2_text_x, start_y + row_spacing - 13, id(roboto_regular), Color::BLACK, TextAlign::LEFT, "Humid: %d%%", id(g_humidity)); 
+      
+      it.printf(col2_icon_x, start_y + row_spacing*2, id(icon_font), Color::BLACK, TextAlign::CENTER, "\U000F0093"); 
+      it.printf(col2_text_x, start_y + row_spacing*2 - 13, id(roboto_regular), Color::BLACK, TextAlign::LEFT, "NO2: %.2f ppm", id(g_no2)); 
+      
+      it.printf(col2_icon_x, start_y + row_spacing*3, id(icon_font), Color::BLACK, TextAlign::CENTER, "\U000F0647"); 
+      it.printf(col2_text_x, start_y + row_spacing*3 - 13, id(roboto_regular), Color::BLACK, TextAlign::LEFT, "CO: %.1f ppm", id(g_co)); 
+      
+      it.printf(col2_icon_x, start_y + row_spacing*4, id(icon_font), Color::BLACK, TextAlign::CENTER, "\U000F0BAC"); 
+      it.printf(col2_text_x, start_y + row_spacing*4 - 13, id(roboto_regular), Color::BLACK, TextAlign::LEFT, "O3: %.2f ppb", id(g_o3)); 
+      
+      int footer_y = it.get_height() - 20; 
+      if (id(wifi_connected_status).state) {
+        it.printf(it.get_width()/2 + 50, footer_y, id(icon_font), Color::BLACK, TextAlign::CENTER, "\U000F05A9"); 
+      }
+      if (id(esptime).now().is_valid()) {
+        int time_text_x = it.get_width()/2;
+        int time_icon_x = time_text_x - 50; 
+        it.printf(time_icon_x, footer_y, id(icon_font), Color::BLACK, TextAlign::CENTER, "\U000F0150"); 
+        it.printf(time_text_x, footer_y, id(small_font), Color::BLACK, TextAlign::CENTER, 
+                "%02d:%02d", 
+                id(esptime).now().hour, id(esptime).now().minute, id(esptime).now().second);
+      }
+
+globals:
+  - id: g_pm1_0
+    type: int
+    restore_value: no
+  - id: g_pm2_5
+    type: int
+    restore_value: no
+  - id: g_pm10
+    type: int
+    restore_value: no
+  - id: g_co2
+    type: int
+    restore_value: no
+  - id: g_voc
+    type: int
+    restore_value: no
+  - id: g_temperature
+    type: float
+    restore_value: no
+  - id: g_humidity
+    type: int
+    restore_value: no
+  - id: g_ch2o
+    type: float
+    restore_value: no
+  - id: g_co
+    type: float
+    restore_value: no
+  - id: g_o3
+    type: float
+    restore_value: no
+  - id: g_no2
+    type: float
+    restore_value: no
+  - id: g_data_valid
+    type: bool
+    restore_value: no
+    initial_value: 'false'
+
+text_sensor:
+  - platform: template
+    id: sender_mac
+    name: "Last ESP-NOW Sender"
+    internal: true
+  - platform: template
+    id: last_update_time
+    name: "Last Update Time"
+    internal: true
+
+binary_sensor:
+  - platform: status
+    id: wifi_connected_status
+    name: "WiFi Connection Status"
+
+time:
+  - platform: sntp
+    id: esptime
+    timezone: "CET-1CEST,M3.5.0,M10.5.0/3"
+    servers: pool.ntp.org                
+
+switch:
+  - platform: gpio
+    pin: 7
+    id: epd_power
+    name: "EPD Power"
+    restore_mode: ALWAYS_ON
+
+espnow_receiver:
+  pm_1_0: g_pm1_0
+  pm_2_5: g_pm2_5
+  pm_10_0: g_pm10
+  co2: g_co2
+  voc: g_voc
+  temperature: g_temperature
+  humidity: g_humidity
+  ch2o: g_ch2o
+  co: g_co
+  ozone: g_o3
+  no2: g_no2
+  valid: g_data_valid
+
+
+ 

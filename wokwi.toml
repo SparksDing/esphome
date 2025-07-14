@@ -1,0 +1,8 @@
+[wokwi]
+version = 1
+elf = "./.esphome/build/sensor-display-receiver/.pioenvs/sensor-display-receiver/firmware.elf"
+firmware = "./.esphome/build/sensor-display-receiver/.pioenvs/sensor-display-receiver/firmware.bin"
+
+[[net.forward]]
+from = "localhost:6053"
+to = "target:6053"
