@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "author": "yuqing",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 158.3, "left": 14.2, "attrs": {} },
+    { "type": "board-epaper-2in9", "id": "epd1", "top": 377.54, "left": 278.63, "attrs": {} },
+    {
+      "type": "wokwi-microsd-card",
+      "id": "sd1",
+      "top": 21.77,
+      "left": 342.67,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -16.93,
+      "left": 39.67,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "epd1:BUSY", "esp:D4", "cyan", [ "h-28.8", "v288", "h67.2", "v19.2", "h67.2" ] ],
+    [ "epd1:CS", "esp:D5", "blue", [ "h-38.4", "v268.8", "h163.2", "v-9.6", "h9.6" ] ],
+    [ "epd1:DC", "esp:D17", "green", [ "h-48", "v307.2", "h201.6", "v0", "h-28.8" ] ],
+    [ "epd1:RST", "esp:D16", "yellow", [ "h-19.2", "v240", "h115.2", "v-9.6", "h19.2" ] ],
+    [ "epd1:VCC", "esp:3V3", "red", [ "h-57.6", "v307.13", "h144" ] ],
+    [ "epd1:DIN", "esp:23", "green", [ "h0", "v95.93", "h182.4" ] ],
+    [ "sd1:SCK", "esp:D18", "green", [ "v145", "h-31" ] ],
+    [ "sd1:GND", "esp:GND.1", "black", [ "v210", "h-48" ] ],
+    [ "sd1:DO", "esp:D19", "green", [ "v135", "h-42" ] ],
+    [ "sd1:DI", "esp:D23", "green", [ "v40", "h6" ] ],
+    [ "sd1:CS", "esp:D5", "green", [ "v155", "h21" ] ],
+    [ "sd1:VCC", "esp:3V3", "red", [ "v220", "h-89", "h79" ] ]
+  ],
+  "dependencies": {}
+}

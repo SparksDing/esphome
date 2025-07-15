@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "author": "yuqing",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 158.3, "left": 14.2, "attrs": {} },
+    { "type": "board-ssd1306", "id": "oled1", "top": 377.54, "left": 278.63, "attrs": {} },
+    {
+      "type": "wokwi-microsd-card",
+      "id": "sd1",
+      "top": 21.77,
+      "left": 342.67,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -16.93,
+      "left": 39.67,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "oled1:SCL", "esp:D22", "green", [ "v0" ] ],
+    [ "oled1:GND", "esp:GND.1", "black", [ "v-10.03", "h-45.15", "v89.62" ] ],
+    [ "esp:3V3", "oled1:VCC", "green", [ "v-0.01", "h10.98", "v-0", "h47.28" ] ],
+    [ "esp:D21", "oled1:SDA", "yellow", [ "h20.35", "v-8.37", "h93.43" ] ],
+    [ "sd1:SCK", "esp:D18", "green", [ "v145", "h-31" ] ],
+    [ "sd1:GND", "esp:GND.1", "black", [ "v210", "h-48" ] ],
+    [ "sd1:DO", "esp:D19", "green", [ "v135", "h-42" ] ],
+    [ "sd1:DI", "esp:D23", "green", [ "v40", "h6" ] ],
+    [ "sd1:CS", "esp:D5", "green", [ "v155", "h21" ] ],
+    [ "sd1:VCC", "esp:3V3", "red", [ "v220", "h-89", "h79" ] ]
+  ],
+  "dependencies": {}
+}

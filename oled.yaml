@@ -1,0 +1,23 @@
+esphome:
+  name: oled
+
+esp32:
+  board: esp32dev
+
+i2c:
+  sda: 21
+  scl: 22
+
+font:
+  - file: "/Users/admin/Downloads/Comic Sans MS/Comic Sans MS.ttf"
+    id: comic_sans
+    size: 10
+    bpp: 2
+
+display:
+  - platform: ssd1306_i2c
+    model: "SSD1306 128x64"
+    reset_pin: 2
+    address: 0x3C
+    lambda: |-
+      it.print(0, 0, id(comic_sans), "Hello World!");
